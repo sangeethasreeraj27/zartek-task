@@ -1,0 +1,12 @@
+@import "./../../../../shared/styles/color.scss";
+
+.home-div {
+  width: 100%;
+  overflow: auto;
+  height: 100%;
+
+  .card-div {
+    background: $light-grey;
+    cursor: pointer;
+  }
+}

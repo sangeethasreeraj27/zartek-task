@@ -1,0 +1,16 @@
+@import './../../../../shared/styles/color.scss';
+
+.main-div {
+  width: 100%;
+
+  ::ng-deep .mat-ink-bar {
+    background-color: $red !important;
+    height: 4px !important;
+  }
+
+  ::ng-deep .mat-tab-label-active {
+    color: $red !important;
+    font-weight: bold;
+    ;
+  }
+}

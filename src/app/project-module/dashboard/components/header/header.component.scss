@@ -1,0 +1,33 @@
+@import "../../../../shared/styles/color.scss";
+
+.header-div {
+  width: 100%;
+  height: 75px;
+  position: fixed;
+  //   background-color: $green;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 0 4%;
+  background: $white;
+  z-index: 100;
+
+  .header-main-title {
+    font-size: 20px;
+    color: $grey;
+    margin: 0 0 0 25px;
+  }
+
+  .header-subtitle {
+    font-size: 18px;
+    color: $light-grey;
+    margin: 0 10px;
+  }
+
+  .icons {
+    color: $grey;
+    transform: scale(1);
+    cursor: pointer;
+    outline: none;
+  }
+}

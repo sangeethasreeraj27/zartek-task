@@ -1,0 +1,8 @@
+<div class="main-div">
+  <mat-tab-group mat-align-tabs="center">
+    <mat-tab [label]="category.menu_category" *ngFor="let category of categoryTabs">
+      <app-dish-list [dishList]="category.category_dishes"></app-dish-list>
+    </mat-tab>
+  </mat-tab-group>
+
+</div>

@@ -1,0 +1,14 @@
+<div class="header-div" fxLayout="row" fxLayoutAlign="space-between center">
+  <div fxLayout="row" fxLayoutAlign="start center">
+    <mat-icon *ngIf="!restaurantName" [routerLink]="['/']" class="icons">home</mat-icon>
+    <mat-icon *ngIf="restaurantName" [routerLink]="['home']" class="icons">arrow_back</mat-icon>
+    <p class="header-main-title">{{restaurantName}}</p>
+
+  </div>
+  <div fxLayout="row" fxLayoutAlign="end center">
+    <p class="header-subtitle">My orders</p>
+    <mat-icon class="icons" matBadge="{{cartCount}}" matBadgeSize="small" matBadgeColor="warn">shopping_cart
+    </mat-icon>
+
+  </div>
+</div>
