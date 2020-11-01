@@ -21,7 +21,7 @@ export class DishCategoryComponent implements OnInit {
   swipeCoord: [number, number];
   swipeTime: number;
   selectedTab: number;
-  selectedIndex: number = 1;
+  // selectedIndex: number = 1;
 
   constructor(private general: GeneralService,
     private activatedRoute: ActivatedRoute,

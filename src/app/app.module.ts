@@ -27,10 +27,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     useClass: ApiInterceptor,
     multi: true
   },
-  {
-    provide: HAMMER_GESTURE_CONFIG,
-    useClass: HammerConfigService
-  }
+    // {
+    //   provide: HAMMER_GESTURE_CONFIG,
+    //   useClass: HammerConfigService
+    // }
   ],
   bootstrap: [AppComponent]
 })
