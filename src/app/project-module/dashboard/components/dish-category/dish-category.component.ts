@@ -109,13 +109,13 @@ export class DishCategoryComponent implements OnInit {
         if (swipe === 'next') {
           const isFirst = this.selectedTab === 0;
           if (this.selectedTab <= this.tabLength - 2) {
-            this.selectedTab = isFirst ? 1 : this.selectedTab + 1;
+            this.selectedTab++;
           }
           console.log("Swipe left - INDEX: " + this.selectedTab);
         } else if (swipe === 'previous') {
           const isLast = this.selectedTab === this.tabLength;
           if (this.selectedTab >= 1) {
-            this.selectedTab = this.selectedTab - 1;
+            this.selectedTab--;
           }
           console.log("Swipe right — INDEX: " + this.selectedTab);
         }
