@@ -1,14 +1,23 @@
 <div class="home-div">
-  <div style="height: 100%;" fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutAlign.xs="start center"
-    fxLayout.xs="column" fxLayoutGap="20px">
-    <mat-card (click)="navigateTo(restaurant)" class="card-div" fxFlex="30"
-      *ngFor="let restaurant of restaurentDetails">
+  <div style="position: relative;">
+    <img width="100%" src="/assets/images/banner.jpg">
+    <h1 class="header-text">Discover the best restaurant and foods !!!</h1>
+  </div>
+
+
+  <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutAlign.xs="center center" fxLayout.xs="column"
+    fxLayoutGap="20px">
+    <div (click)="navigateTo(restaurant)" class="card-div" fxFlex="20" *ngFor="let restaurant of restaurentDetails">
+
+      <div style="height: 250px;">
+        <img class="res-img" mat-card-image
+          [src]="restaurant.restaurant_image || '/assets/images/no-image-available.jpg'" alt="Restaurant">
+      </div>
+
       <mat-card-header class="text-center">
         <mat-card-title>{{restaurant?.restaurant_name}}</mat-card-title>
       </mat-card-header>
-      <img mat-card-image [src]="restaurant.restaurant_image || '/assets/images/no-image-available.jpg'"
-        alt="Restaurant">
-    </mat-card>
+    </div>
   </div>
 
 </div>

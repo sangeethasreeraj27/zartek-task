@@ -2,10 +2,12 @@ import { ApiService, ApiConstants } from './api.service';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { HammerGestureConfig } from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class GeneralService {
   myCart: any;
 
