@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ViewChildren } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ViewChildren, OnChanges } from '@angular/core';
 import { GeneralService } from 'src/app/shared/service/general.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -20,7 +20,7 @@ export class DishCategoryComponent implements OnInit {
   currentRestaurant: IRestaurant;
   swipeCoord: [number, number];
   swipeTime: number;
-  selectedTab: number;
+  selectedTab: number = 0;
   // selectedIndex: number = 1;
   tabLength: number;
 
@@ -43,7 +43,7 @@ export class DishCategoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.selectedTab = 0;
   }
 
   // get all restaurant details
@@ -92,7 +92,7 @@ export class DishCategoryComponent implements OnInit {
 
   // Action triggered when user swipes
 
-  swipeOld(e: TouchEvent, when: string): void {
+  swipe(e: TouchEvent, when: string): void {
     const coord: [number, number] = [e.changedTouches[0].clientX, e.changedTouches[0].clientY];
     const time = new Date().getTime();
     if (when == 'start') {
