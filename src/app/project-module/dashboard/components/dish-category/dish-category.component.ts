@@ -22,6 +22,7 @@ export class DishCategoryComponent implements OnInit {
   swipeTime: number;
   selectedTab: number;
   // selectedIndex: number = 1;
+  tabLength: number;
 
   constructor(private general: GeneralService,
     private activatedRoute: ActivatedRoute,
@@ -85,13 +86,13 @@ export class DishCategoryComponent implements OnInit {
   fetchCategoryData() {
     this.currentRestaurant = this.restaurentDetails.find(detail => detail.restaurant_id == this.id);
     this.categoryTabs = this.currentRestaurant.table_menu_list;
+    this.tabLength = this.categoryTabs.length;
     console.log("categorytabs=>", this.categoryTabs);
   }
 
   // Action triggered when user swipes
 
   swipe(e: TouchEvent, when: string): void {
-    debugger
     const coord: [number, number] = [e.changedTouches[0].clientX, e.changedTouches[0].clientY];
     const time = new Date().getTime();
     if (when == 'start') {
@@ -112,7 +113,7 @@ export class DishCategoryComponent implements OnInit {
           }
           console.log("Swipe left - INDEX: " + this.selectedTab);
         } else if (swipe === 'previous') {
-          const isLast = this.selectedTab === 4;
+          const isLast = this.selectedTab === this.tabLength - 1;
           if (this.selectedTab >= 1) {
             this.selectedTab = this.selectedTab - 1;
           }

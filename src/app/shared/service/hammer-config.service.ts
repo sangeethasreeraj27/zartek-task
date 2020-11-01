@@ -1,12 +1,22 @@
 import { HammerGestureConfig } from '@angular/platform-browser';
 import { Injectable } from '@angular/core';
+import * as Hammer from 'hammerjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class HammerConfigService extends HammerGestureConfig {
-  overrides = <any>{
-    'swipe': { velocity: 0.4, threshold: 20 } // override default settings
+  buildHammer(element: HTMLElement): HammerManager {
+    return new Hammer.Manager(element, {
+      touchAction: 'auto',
+      inputClass: Hammer.TouchInput,
+      recognizers: [
+        [Hammer.Swipe, {
+          direction: Hammer.DIRECTION_HORIZONTAL
+        }]
+      ]
+    });
   }
 
 }
