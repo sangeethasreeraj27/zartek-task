@@ -11,10 +11,13 @@ export class HeaderComponent implements OnInit {
   restaurantName: any;
 
   constructor(private general: GeneralService) {
+
+    // get cart count
     this.general.cartItem.subscribe(count => {
       this.cartCount = count
-    }
-    );
+    });
+
+    // get active restaurant
     this.general.activeRestaurant.subscribe(name => {
       this.restaurantName = name;
     })

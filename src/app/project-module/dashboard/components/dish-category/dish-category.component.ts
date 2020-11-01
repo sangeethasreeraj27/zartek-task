@@ -21,11 +21,12 @@ export class DishCategoryComponent implements OnInit {
   swipeCoord: [number, number];
   swipeTime: number;
   selectedTab: number;
-
+  selectedIndex: number = 1;
 
   constructor(private general: GeneralService,
     private activatedRoute: ActivatedRoute,
   ) {
+    // get all restaurant details and active restaurant id
     Promise.all([
       this.fetchRestaurantData(),
       this.fetchParams()
@@ -87,20 +88,7 @@ export class DishCategoryComponent implements OnInit {
     console.log("categorytabs=>", this.categoryTabs);
   }
 
-
-
-
-  selectedIndex: number = 1;
-
-  selectChange(): void {
-    console.log("Selected INDEX: " + this.selectedIndex);
-  }
-
-  SWIPE_ACTION = { LEFT: 'swipeleft', RIGHT: 'swiperight' };
-
   // Action triggered when user swipes
-
-
 
   swipe(e: TouchEvent, when: string): void {
     debugger
@@ -130,7 +118,6 @@ export class DishCategoryComponent implements OnInit {
           }
           console.log("Swipe right — INDEX: " + this.selectedTab);
         }
-        // Do whatever you want with swipe
       }
     }
   }

@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private general: GeneralService,
     private router: Router) {
+    // get all restaurant details from api
     this.general.restaurentData.subscribe(data => {
       if (data && data.length) {
         this.restaurentDetails = data;
@@ -25,6 +26,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // navigate to dish category of active restaurant
   navigateTo(restuarant) {
     this.router.navigate(['/dish-category', restuarant.restaurant_id]);
     this.general.setCurrentRestaurant(restuarant);

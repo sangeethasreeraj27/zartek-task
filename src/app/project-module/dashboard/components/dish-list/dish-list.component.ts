@@ -20,6 +20,7 @@ export class DishListComponent implements OnInit, OnChanges {
     console.log("current dish list=>", this.dishList);
     this.activeDishList = this.dishList;
     let tempArray = [];
+    // init cart count
     this.activeDishList.forEach(dish => {
       tempArray = this.myCart.filter(cart => cart == dish.dish_id);
       dish.count = tempArray.length;

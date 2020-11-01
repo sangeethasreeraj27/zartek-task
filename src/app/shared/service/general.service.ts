@@ -19,7 +19,7 @@ export class GeneralService {
   activeRestaurant = new BehaviorSubject(null);
 
 
-  // get all resturant details
+  // get all resturant details from api
   fetchData() {
     this.apiService
       .ExecuteGet(
@@ -44,6 +44,12 @@ export class GeneralService {
     this.openSnackBar("Something went wrong !!!", '');
   }
 
+  //active restaurant detail
+
+  initRestaurant() {
+    this.activeRestaurant.next(this.getCurrentRestaurant);
+  }
+
   setCurrentRestaurant(res) {
     localStorage.setItem("restaurant", res.restaurant_name);
     this.activeRestaurant.next(res.restaurant_name);
@@ -63,18 +69,7 @@ export class GeneralService {
     this.activeRestaurant.next(null);
   }
 
-  initRestaurant() {
-    this.activeRestaurant.next(this.getCurrentRestaurant);
-  }
-
-  get getCartItem() {
-    if (localStorage.getItem('myCart')) {
-      return (JSON.parse(localStorage.getItem('myCart')));
-    }
-    else {
-      return ([]);
-    }
-  }
+  // cart detail
 
   initCartCount() {
     this.myCart = this.getCartItem;
@@ -86,6 +81,15 @@ export class GeneralService {
     this.myCart.push(item.dish_id)
     localStorage.setItem('myCart', JSON.stringify(this.myCart))
     this.cartItem.next(this.myCart.length)
+  }
+
+  get getCartItem() {
+    if (localStorage.getItem('myCart')) {
+      return (JSON.parse(localStorage.getItem('myCart')));
+    }
+    else {
+      return ([]);
+    }
   }
 
   removeCartItem(item) {
