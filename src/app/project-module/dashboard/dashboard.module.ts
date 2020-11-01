@@ -26,7 +26,6 @@ import { HAMMER_GESTURE_CONFIG, HammerGestureConfig } from '@angular/platform-br
     MatIconModule,
     MatTabsModule,
     MatCardModule,
-  ],
-  providers: [], schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  ]
 })
 export class DashboardModule { }

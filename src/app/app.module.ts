@@ -8,11 +8,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { applyPolyfills, defineCustomElements } from 'mat-tab-swiper/loader';
-applyPolyfills().then(() => {
-  defineCustomElements();
-})
-
 
 @NgModule({
   declarations: [
@@ -24,8 +19,6 @@ applyPolyfills().then(() => {
     BrowserAnimationsModule,
     HttpClientModule,
     MatSnackBarModule,
-
-
   ],
 
   providers: [{
@@ -33,10 +26,10 @@ applyPolyfills().then(() => {
     useClass: ApiInterceptor,
     multi: true
   },
-    // {
-    //   provide: HAMMER_GESTURE_CONFIG,
-    //   useClass: HammerConfigService
-    // }
+  {
+    provide: HAMMER_GESTURE_CONFIG,
+    useClass: HammerConfigService
+  }
   ],
   bootstrap: [AppComponent]
 })
