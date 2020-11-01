@@ -108,7 +108,7 @@ export class DishCategoryComponent implements OnInit {
         console.info(swipe);
         if (swipe === 'next') {
           const isFirst = this.selectedTab === 0;
-          if (this.selectedTab <= 1) {
+          if (this.selectedTab <= this.tabLength - 2) {
             this.selectedTab = isFirst ? 1 : this.selectedTab + 1;
           }
           console.log("Swipe left - INDEX: " + this.selectedTab);
