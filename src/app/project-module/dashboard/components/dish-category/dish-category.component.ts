@@ -103,7 +103,7 @@ export class DishCategoryComponent implements OnInit {
       const duration = time - this.swipeTime;
       if (duration < 1000 //
         && Math.abs(direction[0]) > 30 // Long enough
-        && Math.abs(direction[0]) > Math.abs(direction[1] * 3)) { // Horizontal enough
+        && Math.abs(direction[0]) > Math.abs(direction[1] * 2)) { // Horizontal enough
         const swipe = direction[0] < 0 ? 'next' : 'previous';
         console.info(swipe);
         if (swipe === 'next') {
