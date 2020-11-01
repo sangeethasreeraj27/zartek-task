@@ -1,7 +1,18 @@
-<div class="main-div mat-content" (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')">
+<!-- <div class="main-div mat-content" (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')">
   <mat-tab-group mat-align-tabs="center" [(selectedIndex)]="selectedTab" (touchstart)="swipe($event, 'start')"
     (touchend)="swipe($event, 'end')">
     <mat-tab [label]="category.menu_category" *ngFor="let category of categoryTabs; let i=index">
+      <app-dish-list [dishList]="category.category_dishes"></app-dish-list>
+    </mat-tab>
+  </mat-tab-group>
+</div> -->
+
+<h4>test</h4>
+<div class="main-div mat-content" md-scroll-y (swipeleft)="swipe(selectedIndex, $event.type)"
+  (swiperight)="swipe(selectedIndex, $event.type)">
+  <mat-tab-group mat-align-tabs="center" [(selectedIndex)]="selectedIndex" (selectedIndexChange)="selectChange()">
+    <mat-tab [label]="category.menu_category" *ngFor="let category of categoryTabs; let i=index"
+      (swipeleft)="swipe(i, $event.type)" (swiperight)="swipe(i, $event.type)">
       <app-dish-list [dishList]="category.category_dishes"></app-dish-list>
     </mat-tab>
   </mat-tab-group>

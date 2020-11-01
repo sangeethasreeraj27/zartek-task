@@ -92,7 +92,7 @@ export class DishCategoryComponent implements OnInit {
 
   // Action triggered when user swipes
 
-  swipe(e: TouchEvent, when: string): void {
+  swipeOld(e: TouchEvent, when: string): void {
     const coord: [number, number] = [e.changedTouches[0].clientX, e.changedTouches[0].clientY];
     const time = new Date().getTime();
     if (when == 'start') {
@@ -120,6 +120,39 @@ export class DishCategoryComponent implements OnInit {
           console.log("Swipe right — INDEX: " + this.selectedTab);
         }
       }
+    }
+  }
+
+
+  // second swipe
+  selectedIndex: number = 0;
+
+  selectChange(): void {
+    console.log("Selected INDEX: " + this.selectedIndex);
+  }
+
+  SWIPE_ACTION = { LEFT: 'swipeleft', RIGHT: 'swiperight' };
+
+  // Action triggered when user swipes
+  swipe(selectedIndex: number, action = this.SWIPE_ACTION.RIGHT) {
+    console.log("swipe");
+    console.log("number", selectedIndex);
+    console.log("action", action);
+    // Out of range
+    if (this.selectedIndex < 0 || this.selectedIndex > 1) return;
+
+    // Swipe left, next tab
+    if (action === this.SWIPE_ACTION.LEFT) {
+      const isLast = this.selectedIndex === 1;
+      this.selectedIndex = isLast ? 0 : this.selectedIndex + 1;
+      console.log("Swipe right - INDEX: " + this.selectedIndex);
+    }
+
+    // Swipe right, previous tab
+    if (action === this.SWIPE_ACTION.RIGHT) {
+      const isFirst = this.selectedIndex === 0;
+      this.selectedIndex = isFirst ? 1 : this.selectedIndex - 1;
+      console.log("Swipe left - INDEX: " + this.selectedIndex);
     }
   }
 
