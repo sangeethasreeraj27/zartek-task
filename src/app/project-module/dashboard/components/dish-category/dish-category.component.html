@@ -1,8 +1,8 @@
-<div class="main-div">
-  <mat-tab-group mat-align-tabs="center">
-    <mat-tab [label]="category.menu_category" *ngFor="let category of categoryTabs">
+<div class="main-div mat-content" (touchstart)="swipe($event, 'start' )" (touchend)="swipe($event, 'end' )">
+  <mat-tab-group mat-align-tabs="center" [(selectedIndex)]="selectedTab">
+    <mat-tab [label]="category.menu_category" *ngFor="let category of categoryTabs; let i=index"
+      (swipeleft)="swipe(i, $event.type)" (swiperight)="swipe(i, $event.type)">
       <app-dish-list [dishList]="category.category_dishes"></app-dish-list>
     </mat-tab>
   </mat-tab-group>
-
 </div>

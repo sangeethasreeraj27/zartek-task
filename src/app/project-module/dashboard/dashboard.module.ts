@@ -12,6 +12,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { DishListComponent } from './components/dish-list/dish-list.component';
+import { HAMMER_GESTURE_CONFIG, HammerGestureConfig } from '@angular/platform-browser';
+
+
 
 @NgModule({
   declarations: [DashboardComponent, HomeComponent, DishCategoryComponent, HeaderComponent, DishListComponent],
@@ -23,6 +26,7 @@ import { DishListComponent } from './components/dish-list/dish-list.component';
     MatIconModule,
     MatTabsModule,
     MatCardModule,
-  ]
+  ],
+  providers: []
 })
 export class DashboardModule { }
