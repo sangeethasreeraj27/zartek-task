@@ -1,13 +1,17 @@
 import { HammerConfigService } from './shared/service/hammer-config.service';
 import { ApiInterceptor } from './shared/interceptor/api.interceptor';
 import { BrowserModule, HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
-import { NgModule, Injectable } from '@angular/core';
+import { NgModule, Injectable, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { applyPolyfills, defineCustomElements } from 'mat-tab-swiper/loader';
+applyPolyfills().then(() => {
+  defineCustomElements();
+})
 
 
 @NgModule({
@@ -19,9 +23,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+
 
   ],
+
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: ApiInterceptor,

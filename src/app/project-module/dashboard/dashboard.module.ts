@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
@@ -27,6 +27,6 @@ import { HAMMER_GESTURE_CONFIG, HammerGestureConfig } from '@angular/platform-br
     MatTabsModule,
     MatCardModule,
   ],
-  providers: []
+  providers: [], schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DashboardModule { }

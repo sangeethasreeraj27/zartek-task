@@ -22,7 +22,8 @@
         <p *ngIf="item.addonCat && item.addonCat.length" class="dish-customize-title">Customizations available</p>
       </div>
       <div>
-        <img class="dish-img" [src]="item.dish_image || '/assets/images/no-image-available.jpg'">
+        <img class="dish-img" [src]="item.dish_image || '/assets/images/no-image-available.jpg'"
+          onerror="this.onerror=null;this.src='/assets/images/no-image-available.jpg';">
       </div>
     </div>
   </div>

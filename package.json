@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "~10.0.4",
     "@angular/router": "~10.0.4",
     "hammerjs": "^2.0.8",
+    "mat-tab-swiper": "^1.1.16",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"

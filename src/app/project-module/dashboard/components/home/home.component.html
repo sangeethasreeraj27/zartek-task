@@ -4,6 +4,18 @@
     <h1 class="header-text">Discover the best restaurant and foods !!!</h1>
   </div>
 
+  <mat-tab-swiper>
+    <mat-swiper tab="Tab1">
+      jkhhkjh
+    </mat-swiper>
+    <mat-swiper tab="Tab2">
+      kjjk
+    </mat-swiper>
+    <mat-swiper tab="Tab3">
+      hgjghj
+    </mat-swiper>
+  </mat-tab-swiper>
+
 
   <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutAlign.xs="center center" fxLayout.xs="column"
     fxLayoutGap="20px">
@@ -11,7 +23,8 @@
 
       <div style="height: 250px;">
         <img class="res-img" mat-card-image
-          [src]="restaurant.restaurant_image || '/assets/images/no-image-available.jpg'" alt="Restaurant">
+          [src]="restaurant.restaurant_image || '/assets/images/no-image-available.jpg'" alt="Restaurant"
+          onerror="this.onerror=null;this.src='/assets/images/no-image-available.jpg';">
       </div>
 
       <mat-card-header class="text-center">
