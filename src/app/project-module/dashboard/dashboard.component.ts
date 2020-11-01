@@ -1,6 +1,6 @@
 import { GeneralService } from './../../shared/service/general.service';
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationStart } from '@angular/router';
+import { Router, NavigationStart, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,12 +13,13 @@ export class DashboardComponent implements OnInit {
   constructor(private general: GeneralService,
     public router: Router) {
     this.subscription = router.events.subscribe(event => {
-      if (event instanceof NavigationStart) {
-        if (event.url.includes("home")) {
+      if (event instanceof NavigationEnd) {
+        if (event.url.includes("home") || event.url == '/' || event.url == undefined) {
           this.general.removeActiveRestaurant();
         }
       }
     })
+
   }
 
   ngOnInit(): void {

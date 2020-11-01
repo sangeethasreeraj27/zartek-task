@@ -4,10 +4,10 @@
     <mat-card (click)="navigateTo(restaurant)" class="card-div" fxFlex="30"
       *ngFor="let restaurant of restaurentDetails">
       <mat-card-header class="text-center">
-        <mat-card-title>{{restaurant.restaurant_name}}</mat-card-title>
+        <mat-card-title>{{restaurant?.restaurant_name}}</mat-card-title>
       </mat-card-header>
-      <img mat-card-image [src]="restaurant.restaurant_image" alt="Restaurant"
-        onerror="this.onerror=null;this.src='/assets/images/no-image-available.jpg'">
+      <img mat-card-image [src]="restaurant.restaurant_image || '/assets/images/no-image-available.jpg'"
+        alt="Restaurant">
     </mat-card>
   </div>
 

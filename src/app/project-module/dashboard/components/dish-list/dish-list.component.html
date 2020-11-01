@@ -4,25 +4,25 @@
     <div class="item-detail" fxFlex="46" *ngFor="let item of activeDishList" fxLayout="row" fxLayoutAlign="start start"
       fxLayoutGap="10px">
       <div>
-        <img height="20px" src="/assets/icons/{{item.dish_Type}}.png">
+        <img height="20px" src='/assets/icons/{{item.dish_Type}}.png'
+          onerror="this.onerror=null;this.src='assets/icons/x.png';">
       </div>
       <div fxFlex>
-        <p class="dish-main-title">{{item.dish_name}}</p>
+        <p class=" dish-main-title">{{item?.dish_name}}</p>
         <div fxLayout="row" fxLayoutAlign="space-between start">
-          <p class="dish-sub-title">{{item.dish_currency}} {{item.dish_price}}</p>
-          <p class="dish-sub-title">{{item.dish_calories}} calories</p>
+          <p class="dish-sub-title">{{item?.dish_currency}} {{item?.dish_price}}</p>
+          <p class="dish-sub-title">{{item?.dish_calories}} calories</p>
         </div>
-        <p class="dish-sub-sub-title">{{item.dish_description}}</p>
+        <p class="dish-sub-sub-title">{{item?.dish_description}}</p>
         <div class="add-remove-btn" fxLayout="row" fxLayoutAlign="space-between center">
           <mat-icon (click)="removeItem(item)" class="icon">remove</mat-icon>
-          <div fxFlex class="text-center">{{item.count}}</div>
+          <div fxFlex class="text-center">{{item?.count}}</div>
           <mat-icon (click)="addItem(item)" class="icon">add</mat-icon>
         </div>
         <p *ngIf="item.addonCat && item.addonCat.length" class="dish-customize-title">Customizations available</p>
       </div>
       <div>
-        <img class="dish-img" [src]="item.dish_image"
-          onerror="this.onerror=null;this.src='/assets/images/no-image-available.jpg'">
+        <img class="dish-img" [src]="item.dish_image || '/assets/images/no-image-available.jpg'">
       </div>
     </div>
   </div>
